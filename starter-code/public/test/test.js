@@ -3,12 +3,12 @@ QUnit.module('Article Constructor', function() {
     //DONE TODO: write a test for the Article constructor
     
     let testArticle = {
-      title: "Transmitting Open-source Arrays",
-      category: "firewall",
-      author: "Dr. Tressie Kuphal",
-      authorUrl: "http://http://corrine.net",
-      publishedOn: "2014-01-22",
-      body: "## The RSS sensor is down, synthesize the open-source sensor so we can synthesize the RSS sensor!\n\ntransmitting the driver won't do anything."
+      title: 'Transmitting Open-source Arrays',
+      category: 'firewall',
+      author: 'Dr. Tressie Kuphal',
+      authorUrl: 'http://http://corrine.net',
+      publishedOn: '2014-01-22',
+      body: '## The RSS sensor is down, synthesize the open-source sensor so we can synthesize the RSS sensor!\n\ntransmitting the driver won\'t do anything.'
     }
     let newArticle = new Article(testArticle)
 
@@ -19,7 +19,7 @@ QUnit.module('Article Constructor', function() {
     let testArticle = {}
     let newArticle = new Article(testArticle)
 
-    assert.ok(newArticle.toHtml);
+    assert.equal(typeof(newArticle.toHtml), 'function');
     //DONE TODO: verify that an instance of article has a toHtml method
   });
 });
@@ -43,7 +43,10 @@ QUnit.module('Article Class', function() {
     assert.equal(Article.all[0] instanceof Article, true)
   });
   QUnit.test('Article.allAuthors should get unique author names', function(assert) {
-    //TODO: write a test for Article.allAuthors
+    //DONE TODO: write a test for Article.allAuthors
+    let testArticle = [{author: 'v'},{author: 'v'}]
+    Article.loadAll(testArticle);
+    assert.equal(Article.allAuthors().length === 1, true)
   });
   //STRETCH: write a test for Article.numWordsAll
   //STRETCH: write a test for Article.fetchAll
