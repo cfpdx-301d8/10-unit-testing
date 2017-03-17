@@ -5,6 +5,7 @@
   function Article(opts) {
     // REVIEW: Lets review what's actually happening here, and check out some new syntax!!
     Object.keys(opts).forEach(e => this[e] = opts[e]);
+    console.log(Object.keys(opts));
   }
 
   Article.all = [];
